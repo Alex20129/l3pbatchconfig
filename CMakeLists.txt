@@ -1,16 +1,17 @@
-cmake_minimum_required(VERSION 3.0)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
-project(l3pbatchconfig)
+PROJECT(l3pbatchconfig)
 
-set(CMAKE_CXX_STANDARD 11)
+SET(CMAKE_CXX_STANDARD 11)
 
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
+SET(CMAKE_AUTOMOC ON)
+SET(CMAKE_AUTORCC ON)
+SET(CMAKE_AUTOUIC ON)
 
 FIND_PACKAGE(Qt5 COMPONENTS Core Gui Widgets Network REQUIRED)
 
 LINK_LIBRARIES(Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Network)
+LINK_LIBRARIES(-static-libgcc -static-libstdc++)
 
 ADD_EXECUTABLE(l3pbatchconfig
         mainwindow.ui
@@ -18,5 +19,4 @@ ADD_EXECUTABLE(l3pbatchconfig
         mainwindow.h
         main.cpp
         mainwindow.cpp
-        l3pbatchconfig.qrc
-)
+        l3pbatchconfig.qrc)
